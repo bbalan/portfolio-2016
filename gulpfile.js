@@ -28,12 +28,24 @@
     ,   runSequence = require('run-sequence')           // run tasks in order
     ,   gulpif      = require('gulp-if')                // execute operations conditionally
     ,   connect     = require('gulp-connect')           // run local server
-    ,   path        = require('path')                   // need path.resolve() for connect
-    // ,   embedlr     = require("gulp-embedlr")           // embed livereload script without plugin
+    ,   replace     = require('gulp-replace')           // string replacement (for env paths in js and css)
     ,   livereload  = require('gulp-livereload')        // livereload
+    // ,   embedlr     = require("gulp-embedlr")           // embed livereload script without plugin
+    ,   sourcemaps  = require('gulp-sourcemaps')        // sourcemap compiled code
+
+    // assets
+    ,   imagemin    = require('gulp-imagemin')          // crunch image assets
+    ,   concat      = require('gulp-concat')            // concatenate files
+
+    // markup
+    ,   stripDebug  = require('gulp-strip-debug')       // remove console.log() from production build
+    ,   jade        = require('gulp-jade')              // html preprocessor
+    ,   minifyHtml  = require('gulp-minify-html')       // minify html
     
     // javascript
-    ,   sourcemaps  = require('gulp-sourcemaps')        // sourcemap compiled code
+    ,   systemjs    = require('systemjs-builder')       // module loader
+
+    // styles
     ,   stylus      = require('gulp-stylus')            // css preprocessor
     ,   autoprefix  = require('autoprefixer-stylus')    // cross-browser extensions for stylus
     ,   minifyCSS   = require('gulp-minify-css')        // minify css
@@ -91,13 +103,9 @@
 
         gulp.src(src)
             .pipe(gulpif(env == 'dev', sourcemaps.init()))
-            .pipe(stylus({ 
-                // use: [autoprefix('> 5%')], 
-                // sourcemaps: true, 
-                // sourcemap: {inline: true} 
-            }))
-            // .pipe(gulpif(env != 'dev', cmq({beautify:false})))
-            // .pipe(gulpif(env != 'dev', minifyCSS()))
+            .pipe(stylus({ use: [autoprefix('> 5%')] }))
+            .pipe(gulpif(env != 'dev', cmq({beautify:false})))
+            .pipe(gulpif(env != 'dev', minifyCSS()))
             .on('error', handleError)
             .pipe(gulpif(env == 'dev', sourcemaps.write('.')))
             .pipe(gulp.dest(dest))

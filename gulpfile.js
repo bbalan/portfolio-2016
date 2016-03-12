@@ -27,8 +27,10 @@
     ,   watch       = require('gulp-watch')             // watch for changes
     ,   runSequence = require('run-sequence')           // run tasks in order
     ,   gulpif      = require('gulp-if')                // execute operations conditionally
-    ,   connect     = require('gulp-connect')           // run local server
     ,   replace     = require('gulp-replace')           // string replacement (for env paths in js and css)
+
+    // dev helpers
+    ,   connect     = require('gulp-connect')           // run local server
     ,   livereload  = require('gulp-livereload')        // livereload
     // ,   embedlr     = require("gulp-embedlr")           // embed livereload script without plugin
     ,   sourcemaps  = require('gulp-sourcemaps')        // sourcemap compiled code
@@ -44,6 +46,7 @@
     
     // javascript
     ,   systemjs    = require('systemjs-builder')       // module loader
+    ,   stripDebug  = require('gulp-strip-debug')       // remove console.log() from production build
 
     // styles
     ,   stylus      = require('gulp-stylus')            // css preprocessor
@@ -87,6 +90,50 @@
 
 
 
+/* === ASSETS === */
+
+    // Copy binary asset files (images, sounds, etc).
+    gulp.task('assets', function() {
+
+        var src = config.src + config.assets.src,
+            dest = config.environments[env].dest + config.assets.dest;
+
+        log && gutil.log('Copying binaries.');
+
+        gulp.src(src)
+            .pipe(gulp.dest(dest));
+    });
+
+    // Copy scripts, .htaccess and php files into the root directory
+    gulp.task('extras', function() {
+
+        var src = config.src + config.extras.src,
+            dest = config.environments[env].dest + config.extras.dest;
+
+        log && gutil.log('Copying extras.');
+
+        gulp.src(src)
+            .pipe(gulp.dest(dest));
+    });
+
+    // Minify images directly in dest directory. Designed to run separately from main tasks.
+    gulp.task('imagemin', function() {
+
+        setEnv(); // have to do this for all tasks that run independently
+
+        var src  = config.environments[env].src + config.bin.src + '/**/*',
+            dest = config.environments[env].dest + config.bin.dest;
+
+        log && gutil.log('Compressing images.');
+
+        gulp.src(src)
+            .pipe(imagemin({
+                optimizationLevel   : 3,
+                multipass           : true
+            }))
+            .pipe(gulp.dest(dest));
+    });
+
 
 
 
@@ -124,6 +171,7 @@
         log && gutil.log('Watching for changes.');
 
         livereload.listen();
+        gulp.watch(config.src + config.assets.watch,  ['assets']  );
         gulp.watch(config.src + config.styles.watch,  ['styles']  );
     });
 
@@ -139,7 +187,7 @@
 
     // Configure settings, copy assets and run preprocessors.
     gulp.task('build', function() {
-        runSequence([ 'setEnv', 'styles', ]);
+        runSequence([ 'setEnv', 'assets', 'styles', ]);
         
     });
 

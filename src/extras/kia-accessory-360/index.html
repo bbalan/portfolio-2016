@@ -1,0 +1,375 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Kia 360</title>
+
+<link rel="stylesheet" type="text/css" href="kia360vr/kia360.css" />
+
+<script type="text/javascript" src="js/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="kia360vr/kia360vr-0.13.3.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function () {
+	
+	$('#your-div-here').kia360({
+		nameplateTitle:'2012 Rio 5',
+		frameWidth: 586,
+		frameHeight: 294,
+		numFrames: 24,
+		flipMouse: true,
+		autoSpin: true,
+		imageFolder: 'kia360vr/images',
+		firstFrame: '2012-rio-5-door/Rio first frame - tanzanite.jpg',
+		alwaysOnGroups: [],
+		defaultColor: 7,
+		colors: [
+			{
+				name: 'Aurora Black (Pearl)',
+				thumbnail: '2012-rio-5-door/black-thumb.gif',
+				image: '2012-rio-5-door/Rio stack - black.jpg',
+				excludeInteriors: []
+			},
+			{
+				name: 'Clear White',
+				thumbnail: '2012-rio-5-door/white-thumb.gif',
+				image: '2012-rio-5-door/Rio stack - white.jpg',
+				excludeInteriors: []
+			},
+			{
+				name: 'Chestnut Brown (Pearl)',
+				thumbnail: '2012-rio-5-door/chestnut-thumb.gif',
+				image: '2012-rio-5-door/Rio stack - chestnut.jpg',
+				excludeInteriors: []
+			},
+			{
+				name: 'Silverstone (Pearl)',
+				thumbnail: '2012-rio-5-door/silverstone-thumb.gif',
+				image: '2012-rio-5-door/Rio stack - silverstone.jpg',
+				excludeInteriors: []
+			},
+			{
+				name: 'Graphite (Pearl)',
+				thumbnail: '2012-rio-5-door/graphite-thumb.gif',
+				image: '2012-rio-5-door/Rio stack - graphite.jpg',
+				excludeInteriors: []
+			},
+			{
+				name: 'Signal Red (Pearl)',
+				thumbnail: '2012-rio-5-door/signal-red-thumb.gif',
+				image: '2012-rio-5-door/Rio stack - red.jpg',
+				excludeInteriors: [3]
+			},
+			{
+				name: 'Bright Silver (Metallic)',
+				thumbnail: '2012-rio-5-door/silver-thumb.gif',
+				image: '2012-rio-5-door/Rio stack - silver.jpg',
+				excludeInteriors: []
+			},
+			{
+				name: 'Tanzanite Blue (Pearl)',
+				thumbnail: '2012-rio-5-door/tanzanite-thumb.gif',
+				image: '2012-rio-5-door/Rio stack - tanzanite.jpg',
+				excludeInteriors: [3]
+			},
+			{
+				name: 'Deep Blue (Pearl)',
+				thumbnail: '2012-rio-5-door/deep-blue-thumb.gif',
+				image: '2012-rio-5-door/Rio stack - blue.jpg',
+				excludeInteriors: [3]
+			},
+			{
+				name: 'Caramel Yellow (Pearl)',
+				thumbnail: '2012-rio-5-door/caramel-thumb.gif',
+				image: '2012-rio-5-door/Rio stack - caramel.jpg'
+			}
+		], 
+		
+		accessories: [
+		
+		/*
+			{
+				name: '**************** BODY COLOR TEST ******************',
+				group: 99,
+				image: {
+					'Aurora Black (Pearl)': '2012-rio-5-door/Rondo - bumper guard - molten.png',
+					'Clear White': '2012-rio-5-door/Rondo - bumper guard - sterling.png',
+					'Chestnut Brown (Pearl)': '2012-rio-5-door/Rondo - bumper guard - denim.png'
+				},
+				width: 494,
+				height: 49,
+				xOffset: 40,
+				yOffset: 135,
+				visibleStart: 7,
+				visibleEnd: 13
+			},
+		*/
+			{
+				name: 'Roof Rack',
+				onByDefault: false,
+				requires: null,
+				group: 1,
+				image: '2012-rio-5-door/Rio stack - acc roof rack.png',
+				width: 310,
+				height: 44,
+				xOffset: 128,
+				yOffset: 5
+			},
+			{
+				name: 'Roof Basket',
+				onByDefault: false,
+				requires: 'Roof Rack',
+				group: 2,
+				image: '2012-rio-5-door/Rio stack - acc roof basket.png',
+				width: 302,
+				height: 41,
+				xOffset: 143,
+				yOffset: 0
+			},
+			{
+				name: 'Roof Bag',
+				onByDefault: false,
+				requires: 'Roof Rack',
+				group: 2,
+				image: '2012-rio-5-door/Rio stack - acc roof bag.png',
+				width: 282,
+				height: 82,
+				xOffset: 154,
+				yOffset: -39
+			},
+			{
+				name: 'Cargo Box - Short',
+				onByDefault: false,
+				requires: 'Roof Rack',
+				group: 2,
+				image: '2012-rio-5-door/Rio stack - acc roof thule sidekick.png',
+				width: 303,
+				height: 83,
+				xOffset: 143,
+				yOffset: -41
+			},
+			{
+				name: 'Cargo Box - Ski',
+				onByDefault: false,
+				requires: 'Roof Rack',
+				group: 2,
+				image: '2012-rio-5-door/Rio stack - acc roof thule ascent 1100 2.png',
+				width: 401,
+				height: 76,
+				xOffset: 93,
+				yOffset: -30
+			},
+			{
+				name: 'Cargo Box - Snowboard',
+				onByDefault: false,
+				requires: 'Roof Rack',
+				group: 2,
+				image: '2012-rio-5-door/Rio stack - acc roof thule ascent 1500.png',
+				width: 318,
+				height: 81,
+				xOffset: 134,
+				yOffset: -38
+			},
+			{
+				name: 'Bike Rack',
+				onByDefault: false,
+				requires: 'Roof Rack',
+				group: 2,
+				image: '2012-rio-5-door/Rio stack - acc roof bike rack.png',
+				width: 375,
+				height: 108,
+				xOffset: 105,
+				yOffset: -69
+			},
+			{
+				name: 'Ski and Snowboard Carrier',
+				onByDefault: false,
+				requires: 'Roof Rack',
+				group: 2,
+				image: '2012-rio-5-door/Rio stack - acc roof ski rack.png',
+				width: 375,
+				height: 60,
+				xOffset: 105,
+				yOffset: -18
+			},
+			{
+				name: 'Sport visors',
+				onByDefault: false,
+				requires: null,
+				group: 4,
+				image: '2012-rio-5-door/Rio stack - acc sport visors.png',
+				width: 344,
+				height: 46,
+				xOffset: 121,
+				yOffset: 33,
+				visibleRange: [0, 6, 7, 8, 9, 10, 11, 12, 18, 19, 20, 21, 22, 23]
+			},
+			
+			
+			{
+				name: '15" alloy wheels (K012)',
+				onByDefault: false,
+				requires: null,
+				group: 0,
+				image: '2012-rio-5-door/Rio stack - rim K012 15.png',
+				width: 499,
+				height: 127,
+				xOffset: 44,
+				yOffset: 125,
+				visibleRange: [0, 6, 7, 8, 9, 10, 11, 12, 18, 19, 20, 21, 22, 23]
+			},
+			{
+				name: '15" alloy wheels (K009)',
+				onByDefault: false,
+				requires: null,
+				group: 0,
+				image: '2012-rio-5-door/Rio stack - rim K009 15.png',
+				width: 499,
+				height: 127,
+				xOffset: 44,
+				yOffset: 125,
+				visibleRange: [0, 6, 7, 8, 9, 10, 11, 12, 18, 19, 20, 21, 22, 23]
+			},
+			{
+				name: '16" alloy wheels (F86)',
+				onByDefault: false,
+				requires: null,
+				group: 0,
+				image: '2012-rio-5-door/Rio stack - rim F86 16.png',
+				width: 499,
+				height: 127,
+				xOffset: 44,
+				yOffset: 125,
+				visibleRange: [0, 6, 7, 8, 9, 10, 11, 12, 18, 19, 20, 21, 22, 23]
+			},
+			{
+				name: '17" alloy wheels (F86)',
+				onByDefault: false,
+				requires: null,
+				group: 0,
+				image: '2012-rio-5-door/Rio stack - rim F86 17.png',
+				width: 499,
+				height: 127,
+				xOffset: 44,
+				yOffset: 125,
+				visibleRange: [0, 6, 7, 8, 9, 10, 11, 12, 18, 19, 20, 21, 22, 23]
+			},
+			{
+				name: '17" alloy wheels (K004)',
+				onByDefault: false,
+				requires: null,
+				group: 0,
+				image: '2012-rio-5-door/Rio stack - rim K004 17.png',
+				width: 499,
+				height: 127,
+				xOffset: 44,
+				yOffset: 125,
+				visibleRange: [0, 6, 7, 8, 9, 10, 11, 12, 18, 19, 20, 21, 22, 23]
+			}
+
+		],
+		interiors: [																															// list of interiors, links output in order
+			{
+				name: 'Black Cloth',
+				thumbnail: '2012-rio-5-door/interior-black-cloth.gif'
+			},
+			{
+				name: 'Black Leather',
+				thumbnail: '2012-rio-5-door/interior-black-leather.gif'
+			},
+			{
+				name: 'Beige Leather',
+				thumbnail: '2012-rio-5-door/interior-beige-leather.gif'
+			},
+			{
+				name: 'Chocolate Leather',
+				thumbnail: '2012-rio-5-door/interior-chocolate-leather.gif'
+			}
+		]
+	});
+	
+});
+
+</script>
+
+<style type="text/css">
+	html, body {
+		background:#f2f2f2;
+		height:100%;
+		margin:0;
+		padding:0;
+	}
+
+	#wrapper {
+		background-image:url(img/background-rio-5.png);
+		background-repeat:no-repeat;
+		background-position:center top;
+		background-color:#FFF;
+
+		width:975px;
+		margin:0 auto 0 auto;
+		position:relative;
+	}
+	
+	#your-div-here {
+		width:710px;
+		padding-top:170px;
+		padding-left:240px;
+	}
+	
+	#footer {
+		width:100%;
+		height:209px;
+		background:#FFF url(img/footer.png) no-repeat center top;
+	}
+	
+	.clearfix {
+		clear:both;
+	}
+	
+	#car-nav {
+		background-color:#000;
+		color:#FFF;
+		padding:5px;
+		cursor:default;
+	}
+	
+	#car-nav a {
+		display:inline-block;
+		margin-left:20px;
+		color:#FFF;
+		text-decoration:none;
+		font-family:Arial, Helvetica, sans-serif;
+		font-size:12px;
+	}
+	
+	#car-nav a:hover {
+		color:#D00;
+	}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="car-nav">
+	<a href="Rio-5.html">Rio 5</a>
+  <a href="Sorento.html">Sorento</a>
+  <a href="Sportage.html">Sportage</a>
+  <a href="Soul.html">Soul</a>
+  <a href="Forte Koup.html">Forte Koup</a>
+</div>
+
+<div id="wrapper">
+  <div class="content">
+    <div id="your-div-here"></div>
+  </div>
+  <div class="clearfix"></div>
+  
+  <div id="footer"></div>
+</div>
+
+</body>
+</html>

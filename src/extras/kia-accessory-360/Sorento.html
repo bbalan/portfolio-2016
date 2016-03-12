@@ -1,0 +1,483 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Kia 360</title>
+
+<link rel="stylesheet" type="text/css" href="kia360vr/kia360.css" />
+
+<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="kia360vr/kia360vr-0.13.3.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function () {
+	
+	$('#your-div-here').kia360({
+		nameplateTitle:'2012 Sorento',
+		frameWidth: 606,
+		frameHeight: 286,
+		numFrames: 24,
+		flipMouse: true,
+		autoSpin: true,
+		imageFolder: 'kia360vr/images/2012-sorento',
+		firstFrame: 'Sorento - bright silver - first frame.jpg',
+		alwaysOnGroups: [],
+		defaultColor: 0,
+		colors: [
+			{
+				name: 'Bright Silver (Metallic)',
+				thumbnail: 'bright silver.gif',
+				image: 'Sorento - bright silver.jpg',
+				excludeInteriors: [1,3]
+			},
+			{
+				name: 'Ebony Black',
+				thumbnail: 'ebony black.gif',
+				image: 'Sorento - ebony black.jpg',
+				excludeInteriors: []
+			},
+			{
+				name: 'Snow White (Pearl)',
+				thumbnail: 'snow white.gif',
+				image: 'Sorento - snow white.jpg',
+				excludeInteriors: []
+			},
+			{
+				name: 'Spicy Red (Metallic)',
+				thumbnail: 'spicy red.gif',
+				image: 'Sorento - spicy red.jpg',
+				excludeInteriors: []
+			},
+			{
+				name: 'Dark Cherry (Metallic)',
+				thumbnail: 'dark cherry.gif',
+				image: 'Sorento - dark cherry.jpg',
+				excludeInteriors: [1,3]
+			},
+			{
+				name: 'Titanium Silver (Metallic)',
+				thumbnail: 'titanium silver.gif',
+				image: 'Sorento - titanium.jpg',
+				excludeInteriors: [1,3]
+			},
+			{
+				name: 'Khaki (Pearl)',
+				thumbnail: 'khaki.gif',
+				image: 'Sorento - khaki.jpg',
+				excludeInteriors: [1,3]
+			},
+			{
+				name: 'Satin Metal (Metallic)',
+				thumbnail: 'satin metal.gif',
+				image: 'Sorento - satin metal.jpg',
+				excludeInteriors: [1,3]
+			},
+			{
+				name: 'Metal Bronze (Metallic)',
+				thumbnail: 'bronze.gif',
+				image: 'Sorento - bronze.jpg',
+				excludeInteriors: []
+			},
+			{
+				name: 'Deep Ocean Blue (Pearl)',
+				thumbnail: 'deep ocean blue.gif',
+				image: 'Sorento - deep ocean blue.jpg',
+				excludeInteriors: []
+			}
+		], 
+		
+		accessories: [
+			{
+				name: 'Mesh chrome grille',
+				onByDefault: false,
+				requires: null,
+				group: 10,
+				image: 'Sorento - mesh chrome grille.png',
+				width: 538,
+				height: 43,
+				xOffset: 33,
+				yOffset: 113,
+				visibleRange: [0,1,2,3,4,5,6]
+			},
+			{
+				name: 'Push bar',
+				onByDefault: false,
+				requires: null,
+				group: 300,
+				image: 'Sorento - push bar.png',
+				width: 582,
+				height: 85,
+				xOffset: 11,
+				yOffset: 141,
+				zIndex: 10,
+				visibleRange: [0,1,2,3,4,5,6]
+			},
+			{
+				name: 'Front skid plate',
+				onByDefault: false,
+				requires: null,
+				group: 1,
+				image: 'Sorento - front skid plate.png',
+				width: 556,
+				height: 50,
+				xOffset: 24,
+				yOffset: 170,
+				visibleRange: [0,1,2,3,4,5,6]
+			},
+			{
+				name: 'Rear skid plate',
+				onByDefault: false,
+				requires: null,
+				group: 400,
+				image: 'Sorento - rear skid plate.png',
+				width: 558,
+				height: 49,
+				xOffset: 23,
+				yOffset: 170,
+				visibleRange: [12,13,14,15,16,17,18]
+			},	
+			{
+				name: 'Rear bumper step',
+				onByDefault: false,
+				requires: null,
+				group: 11,
+				image: 'Sorento - rear bumper step.png',
+				width: 559,
+				height: 29,
+				xOffset: 22,
+				yOffset: 142,
+				visibleRange: [12,13,14,15,16,17,18]
+			},
+			/*
+			{
+				name: 'Rear bumper step (black)',
+				onByDefault: false,
+				requires: null,
+				group: 11,
+				image: 'Sorento - rear bumper step black.png',
+				width: 559,
+				height: 29,
+				xOffset: 22,
+				yOffset: 142,
+				visibleRange: [12,13,14,15,16,17,18]
+			},*/
+			{
+				name: 'Trailer hitch',
+				onByDefault: false,
+				requires: null,
+				group: 50,
+				image: 'Sorento - trailer hitch.png',
+				width: 562,
+				height: 47,
+				xOffset: 22,
+				yOffset: 185,
+				zIndex: 10,
+				visibleRange: [12,13,14,15,16,17,18]
+			},
+			{
+				name: '2-bike rack',
+				onByDefault: false,
+				requires: 'Trailer hitch',
+				group: 70,
+				image: 'Sorento - bike rack 2.png',
+				width: 638,
+				height: 134,
+				xOffset: -18,
+				yOffset: 99,
+				zIndex: 11,
+				visibleRange: [12,13,14,15,16,17,18]
+			},
+			{
+				name: '4-bike rack',
+				onByDefault: false,
+				requires: 'Trailer hitch',
+				group: 70,
+				image: 'Sorento - bike rack 4.png',
+				width: 618,
+				height: 139,
+				xOffset: -7,
+				yOffset: 94,
+				zIndex: 11,
+				visibleRange: [12,13,14,15,16,17,18]
+			},
+			{
+				name: 'Running boards',
+				onByDefault: false,
+				requires: null,
+				group: 20,
+				image: 'Sorento - running boards.png',
+				width: 324,
+				height: 45,
+				xOffset: 139,
+				yOffset: 181,
+				visibleRange: [0,6,7,8,9,10,11,18,19,20,21,22,23]
+			},	
+			{
+				name: 'Chrome side steps',
+				onByDefault: false,
+				requires: null,
+				group: 20,
+				image: 'Sorento - side steps.png',
+				width: 303,
+				height: 37,
+				xOffset: 153,
+				yOffset: 181,
+				visibleRange: [0,6,7,8,9,10,11,18,19,20,21,22,23]
+			},	
+			{
+				name: 'Black oval side steps',
+				onByDefault: false,
+				requires: null,
+				group: 20,
+				image: 'Sorento - side steps black.png',
+				width: 286,
+				height: 35,
+				xOffset: 162,
+				yOffset: 181,
+				visibleRange: [0,6,7,8,9,10,11,18,19,20,21,22,23]
+			},
+			
+			/*
+			// THESE ACCESSORIES ARE FOR DEMO PURPOSES ONLY
+			{
+				name: 'Tinted windows',
+				onByDefault: false,
+				requires: null,
+				group: 60,
+				image: 'Sorento - tinted windows.png',
+				width: 533,
+				height: 56,
+				xOffset: 36,
+				yOffset: 35,
+				visibleRange: null
+			},
+			{
+				name: 'Cargo Box - Ski',
+				onByDefault: false,
+				requires: null,
+				group: 60,
+				image: 'Sorento - thule ascent 1100.png',
+				width: 454,
+				height: 63,
+				xOffset: 73,
+				yOffset: -28,
+				visibleRange: null
+			},	
+			*/
+			
+			{
+				name: '17" alloy wheels (K004)',
+				onByDefault: false,
+				requires: null,
+				group: 0,
+				image: 'Sorento - rim k004 17.png',
+				width: 458,
+				height: 104,
+				xOffset: 71,
+				yOffset: 139,
+				visibleRange: [0,6,7,8,9,10,11,18,19,20,21,22,23]
+			},
+			{
+				name: '17" alloy wheels (K008)',
+				onByDefault: false,
+				requires: null,
+				group: 0,
+				image: 'Sorento - rim k008 17.png',
+				width: 458,
+				height: 104,
+				xOffset: 71,
+				yOffset: 139,
+				visibleRange: [0,1,5,6,7,8,9,10,11,12,17,18,19,20,21,22,23]
+			},
+			{
+				name: '18" alloy wheels (K008)',
+				onByDefault: false,
+				requires: null,
+				group: 0,
+				image: 'Sorento - rim k008 18.png',
+				width: 458,
+				height: 104,
+				xOffset: 71,
+				yOffset: 139,
+				visibleRange: [0,1,5,6,7,8,9,10,11,12,17,18,19,20,21,22,23]
+			},
+			{
+				name: '17" alloy wheels (K010)',
+				onByDefault: false,
+				requires: null,
+				group: 0,
+				image: 'Sorento - rim k010 17.png',
+				width: 458,
+				height: 104,
+				xOffset: 71,
+				yOffset: 139,
+				visibleRange: [0,1,5,6,7,8,9,10,11,12,17,18,19,20,21,22,23]
+			},
+			{
+				name: '18" alloy wheels (K010)',
+				onByDefault: false,
+				requires: null,
+				group: 0,
+				image: 'Sorento - rim k010 18.png',
+				width: 458,
+				height: 104,
+				xOffset: 71,
+				yOffset: 139,
+				visibleRange: [0,1,5,6,7,8,9,10,11,12,17,18,19,20,21,22,23]
+			},
+			{
+				name: '20" alloy wheels (K010)',
+				onByDefault: false,
+				requires: null,
+				group: 0,
+				image: 'Sorento - rim k010 20.png',
+				width: 462,
+				height: 106,
+				xOffset: 69,
+				yOffset: 137,
+				visibleRange: [0,1,5,6,7,8,9,10,11,12,17,18,19,20,21,22,23]
+			},
+			{
+				name: '17" alloy wheels (K011)',
+				onByDefault: false,
+				requires: null,
+				group: 0,
+				image: 'Sorento - rim k011 17.png',
+				width: 458,
+				height: 104,
+				xOffset: 71,
+				yOffset: 139,
+				visibleRange: [0,1,5,6,7,8,9,10,11,12,17,18,19,20,21,22,23]
+			},
+			{
+				name: '18" alloy wheels (K011)',
+				onByDefault: false,
+				requires: null,
+				group: 0,
+				image: 'Sorento - rim k011 18.png',
+				width: 458,
+				height: 104,
+				xOffset: 71,
+				yOffset: 139,
+				visibleRange: [0,1,5,6,7,8,9,10,11,12,17,18,19,20,21,22,23]
+			},
+			{
+				name: '17" alloy wheels (K012)',
+				onByDefault: false,
+				requires: null,
+				group: 0,
+				image: 'Sorento - rim k012 17.png',
+				width: 458,
+				height: 104,
+				xOffset: 71,
+				yOffset: 139,
+				visibleRange: [0,1,5,6,7,8,9,10,11,12,17,18,19,20,21,22,23]
+			}
+		],
+		//Rio stack - acc roof rack.png
+		interiors: [																															// list of interiors, links output in order
+			{
+				name: 'Black Cloth',
+				thumbnail: 'black cloth.gif'
+			},
+			{
+				name: 'Beige Cloth',
+				thumbnail: 'beige cloth.gif'
+			},
+			{
+				name: 'Black Leather',
+				thumbnail: 'black leather.gif'
+			},
+			{
+				name: 'Beige Leather',
+				thumbnail: 'beige leather.gif'
+			}
+		]
+	});
+	
+});
+
+</script>
+
+<style type="text/css">
+	html, body {
+		background:#f2f2f2;
+		height:100%;
+		margin:0;
+		padding:0;
+	}
+
+	#wrapper {
+		background-image:url(img/background-sorento.png);
+		background-repeat:no-repeat;
+		background-position:center top;
+		background-color:#FFF;
+
+		width:975px;
+		height:150%;
+		margin:0 auto 0 auto;
+		position:relative;
+	}
+	
+	#your-div-here{
+		width:710px;
+		padding-top:145px;
+		padding-left:240px;
+	}
+	
+	#footer {
+		width:100%;
+		height:209px;
+		background:#FFF url(img/footer.png) no-repeat center top;
+	}
+	
+	.clearfix {
+		clear:both;
+	}
+	
+	#car-nav {
+		background-color:#000;
+		color:#FFF;
+		padding:5px;
+		cursor:default;
+	}
+	
+	#car-nav a {
+		display:inline-block;
+		margin-left:20px;
+		color:#FFF;
+		text-decoration:none;
+		font-family:Arial, Helvetica, sans-serif;
+		font-size:12px;
+	}
+	
+	#car-nav a:hover {
+		color:#D00;
+	}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="car-nav">
+	<a href="Rio-5.html">Rio 5</a>
+  <a href="Sorento.html">Sorento</a>
+  <a href="Sportage.html">Sportage</a>
+  <a href="Soul.html">Soul</a>
+  <a href="Forte Koup.html">Forte Koup</a>
+</div>
+
+<div id="wrapper">
+  <div class="content">
+    <div id="your-div-here"></div>
+  </div>
+  <div class="clearfix"></div>
+  
+  <div id="footer"></div>
+</div>
+
+</body>
+</html>

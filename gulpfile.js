@@ -199,6 +199,7 @@
 
         livereload.listen();
         gulp.watch(config.src + config.assets.watch,  ['assets']  );
+        gulp.watch(config.src + config.extras.watch,  ['extras']  );
         gulp.watch(config.src + config.markup.watch,  ['markup']  );
         gulp.watch(config.src + config.styles.watch,  ['styles']  );
     });
@@ -215,7 +216,7 @@
 
     // Configure settings, copy assets and run preprocessors.
     gulp.task('build', function() {
-        runSequence([ 'setEnv', 'assets', 'markup', 'styles' ]);
+        runSequence([ 'setEnv', 'assets', 'extras', 'markup', 'styles' ]);
         
     });
 

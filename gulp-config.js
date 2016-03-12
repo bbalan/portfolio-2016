@@ -29,7 +29,7 @@ module.exports = {
     extras: {
         src     : "extras/**/*",
         watch   : "extras/**/*",
-        dest    : "extras",
+        dest    : "",
     },
 
     // HTML markup

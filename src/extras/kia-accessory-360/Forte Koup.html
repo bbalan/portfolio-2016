@@ -1,0 +1,408 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Kia 360</title>
+
+<link rel="stylesheet" type="text/css" href="kia360vr/kia360.css" />
+
+<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="kia360vr/kia360vr-0.13.3.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function () {
+	
+	$('#your-div-here').kia360({
+		nameplateTitle:'2012 Forte Koup',
+		frameWidth: 558,
+		frameHeight: 218,
+		numFrames: 24,
+		flipMouse: true,
+		autoSpin: true,
+		imageFolder: 'kia360vr/images/2012-forte-koup',
+		firstFrame: 'Forte Koup - first frame - racing red.jpg',
+		alwaysOnGroups: [],
+		defaultColor: 3,
+		colors: [
+			{
+				name: 'Black Orchid',
+				thumbnail: 'black orchid.gif',
+				image: 'Forte Koup - black orchid.jpg',
+				excludeInteriors: []
+			},
+			{
+				name: 'Electric Blue',
+				thumbnail: 'electric blue.gif',
+				image: 'Forte Koup - electric blue.jpg',
+				excludeInteriors: []
+			},
+			{
+				name: 'Pure White',
+				thumbnail: 'pure white.gif',
+				image: 'Forte Koup - pure white.jpg',
+				excludeInteriors: []
+			},
+			{
+				name: 'Racing Red',
+				thumbnail: 'racing red.gif',
+				image: 'Forte Koup - racing red.jpg',
+				excludeInteriors: []
+			},
+			{
+				name: 'Sterling',
+				thumbnail: 'sterling.gif',
+				image: 'Forte Koup - sterling.jpg',
+				excludeInteriors: []
+			},
+			{
+				name: 'Titanium Silver',
+				thumbnail: 'titanium silver.gif',
+				image: 'Forte Koup - titanium silver.jpg',
+				excludeInteriors: []
+			},
+			
+		], 
+		
+		accessories: [
+			{
+				name: 'R badge (single)',
+				onByDefault: false,
+				requires: null,
+				group: null,
+				image: 'Koup - R badges.png',
+				width: 316,
+				height: 25,
+				xOffset: 121,
+				yOffset: 77,
+				zIndex: null,
+				visibleRange: [0,6,7,8,9,10,11,18,19,20,21,22,23]
+			},
+			{
+				name: 'R Package Front Skirts',
+				onByDefault: false,
+				requires: null,
+				group: null,
+				image: {
+					0: 'Koup - R skirts - black orchid.png',
+					1: 'Koup - R skirts - electric blue.png',
+					2: 'Koup - R skirts - pure white.png',
+					3: 'Koup - R skirts - racing red.png',
+					4: 'Koup - R skirts - sterling.png',
+					5: 'Koup - R skirts - titanium silver.png'
+				},
+				width: 548,
+				height: 83,
+				xOffset: 6,
+				yOffset: 111,
+				zIndex: 50,
+				visibleRange: [0,1,2,3,4,5,6]
+			},
+			{
+				name: 'R Package Side Skirts',
+				onByDefault: false,
+				requires: null,
+				group: null,
+				image: {
+					0: 'Koup - side skirt - black orchid.png',
+					1: 'Koup - side skirt - electric blue.png',
+					2: 'Koup - side skirt - pure white.png',
+					3: 'Koup - side skirt - racing red.png',
+					4: 'Koup - side skirt - sterling.png',
+					5: 'Koup - side skirt - titanium silver.png'
+				},
+				width: 287,
+				height: 48,
+				xOffset: 136,
+				yOffset: 117,
+				zIndex: null,
+				visibleRange: [0,6,7,8,9,10,11,18,19,20,21,22,23]
+			},
+			{
+				name: 'R Package Rear Spoiler',
+				onByDefault: false,
+				requires: null,
+				group: null,
+				image: {
+					0: 'Koup - spoiler - black orchid.png',
+					1: 'Koup - spoiler - electric blue.png',
+					2: 'Koup - spoiler - pure white.png',
+					3: 'Koup - spoiler - racing red.png',
+					4: 'Koup - spoiler - sterling.png',
+					5: 'Koup - spoiler - titanium silver.png'
+				},
+				width: 545,
+				height: 41,
+				xOffset: 6,
+				yOffset: 36,
+				zIndex: null,
+				visibleRange: [12,13,14,15,16,17,18]
+			},
+			{
+				name: 'Hood Deflector',
+				onByDefault: false,
+				requires: null,
+				group: null,
+				image: 'Koup - hood deflector.png',
+				width: 521,
+				height: 46,
+				xOffset: 19,
+				yOffset: 65,
+				zIndex: null,
+				visibleRange: [0,1,2,3,4,5,6]
+			},
+			{
+				name: 'Sunroof Deflector',
+				onByDefault: false,
+				requires: null,
+				group: null,
+				image: 'Koup - sunroof deflector.png',
+				width: 109,
+				height: 9,
+				xOffset: 225,
+				yOffset: 1,
+				zIndex: null,
+				visibleRange: [0,1,2,3,4,5,6]
+			},
+			{
+				name: '17" alloy wheels (K004)',
+				onByDefault: false,
+				requires: null,
+				group: 0,
+				image: 'Koup - k004 17.png',
+				width: 466,
+				height: 122,
+				xOffset: 47,
+				yOffset: 88,
+				zIndex: null,
+				visibleRange: [0,6,7,8,9,10,11,18,19,20,21,22,23]
+			},
+			{
+				name: '18" alloy wheels (K007)',
+				onByDefault: false,
+				requires: null,
+				group: 0,
+				image: 'Koup - k007 18.png',
+				width: 466,
+				height: 122,
+				xOffset: 47,
+				yOffset: 88,
+				zIndex: null,
+				visibleRange: [0,6,7,8,9,10,11,18,19,20,21,22,23]
+			},
+			{
+				name: '17" alloy wheels (K008)',
+				onByDefault: false,
+				requires: null,
+				group: 0,
+				image: 'Koup - k008 17.png',
+				width: 466,
+				height: 122,
+				xOffset: 47,
+				yOffset: 88,
+				zIndex: null,
+				visibleRange: [0,6,7,8,9,10,11,18,19,20,21,22,23]
+			},
+			{
+				name: '18" alloy wheels (K008)',
+				onByDefault: false,
+				requires: null,
+				group: 0,
+				image: 'Koup - k008 18.png',
+				width: 466,
+				height: 122,
+				xOffset: 47,
+				yOffset: 88,
+				zIndex: null,
+				visibleRange: [0,6,7,8,9,10,11,18,19,20,21,22,23]
+			},
+			{
+				name: '16" alloy wheels (K009)',
+				onByDefault: false,
+				requires: null,
+				group: 0,
+				image: 'Koup - k009 16.png',
+				width: 466,
+				height: 122,
+				xOffset: 47,
+				yOffset: 88,
+				zIndex: null,
+				visibleRange: [0,6,7,8,9,10,11,18,19,20,21,22,23]
+			},
+			{
+				name: '17" alloy wheels (K010)',
+				onByDefault: false,
+				requires: null,
+				group: 0,
+				image: 'Koup - k010 17.png',
+				width: 466,
+				height: 122,
+				xOffset: 47,
+				yOffset: 88,
+				zIndex: null,
+				visibleRange: [0,6,7,8,9,10,11,18,19,20,21,22,23]
+			},
+			{
+				name: '18" alloy wheels (K010)',
+				onByDefault: false,
+				requires: null,
+				group: 0,
+				image: 'Koup - k010 18.png',
+				width: 466,
+				height: 122,
+				xOffset: 47,
+				yOffset: 88,
+				zIndex: null,
+				visibleRange: [0,6,7,8,9,10,11,18,19,20,21,22,23]
+			},
+			{
+				name: '17" alloy wheels (K011)',
+				onByDefault: false,
+				requires: null,
+				group: 0,
+				image: 'Koup - k011 17.png',
+				width: 466,
+				height: 122,
+				xOffset: 47,
+				yOffset: 88,
+				zIndex: null,
+				visibleRange: [0,6,7,8,9,10,11,18,19,20,21,22,23]
+			},
+			{
+				name: '18" alloy wheels (K011)',
+				onByDefault: false,
+				requires: null,
+				group: 0,
+				image: 'Koup - k011 18.png',
+				width: 466,
+				height: 122,
+				xOffset: 47,
+				yOffset: 88,
+				zIndex: null,
+				visibleRange: [0,6,7,8,9,10,11,18,19,20,21,22,23]
+			},/*
+			{
+				name: '16" alloy wheels (K012)',
+				onByDefault: false,
+				requires: null,
+				group: 0,
+				image: 'Koup - k012 16.png',
+				width: 466,
+				height: 122,
+				xOffset: 47,
+				yOffset: 88,
+				zIndex: null,
+				visibleRange: [0,6,7,8,9,10,11,18,19,20,21,22,23]
+			},*/
+			{
+				name: '17" alloy wheels (K012)',
+				onByDefault: false,
+				requires: null,
+				group: 0,
+				image: 'Koup - k012 17.png',
+				width: 466,
+				height: 122,
+				xOffset: 47,
+				yOffset: 88,
+				zIndex: null,
+				visibleRange: [0,6,7,8,9,10,11,18,19,20,21,22,23]
+			}
+		],
+		
+		interiors: [
+			{
+				name: 'Black Cloth',
+				thumbnail: 'black cloth.gif'
+			},
+			{
+				name: 'Black Leather',
+				thumbnail: 'black leather.gif'
+			}
+		]
+	});
+	
+});
+
+</script>
+
+<style type="text/css">
+	html, body {
+		background:#f2f2f2;
+		height:100%;
+		margin:0;
+		padding:0;
+	}
+
+	#wrapper {
+		background-image:url(img/background-forte-koup.png);
+		background-repeat:no-repeat;
+		background-position:center top;
+		background-color:#FFF;
+
+		width:975px;
+		height:150%;
+		margin:0 auto 0 auto;
+		position:relative;
+	}
+	
+	#your-div-here{
+		width:710px;
+		padding-top:180px;
+		padding-left:240px;
+	}
+	
+	#footer {
+		width:100%;
+		height:209px;
+		background:#FFF url(img/footer.png) no-repeat center top;
+	}
+	
+	.clearfix {
+		clear:both;
+	}
+	
+	#car-nav {
+		background-color:#000;
+		color:#FFF;
+		padding:5px;
+		cursor:default;
+	}
+	
+	#car-nav a {
+		display:inline-block;
+		margin-left:20px;
+		color:#FFF;
+		text-decoration:none;
+		font-family:Arial, Helvetica, sans-serif;
+		font-size:12px;
+	}
+	
+	#car-nav a:hover {
+		color:#D00;
+	}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="car-nav">
+	<a href="Rio-5.html">Rio 5</a>
+  <a href="Sorento.html">Sorento</a>
+  <a href="Sportage.html">Sportage</a>
+  <a href="Soul.html">Soul</a>
+  <a href="Forte Koup.html">Forte Koup</a>
+</div>
+
+<div id="wrapper">
+  <div class="content">
+    <div id="your-div-here"></div>
+  </div>
+  <div class="clearfix"></div>
+  
+  <div id="footer"></div>
+</div>
+
+</body>
+</html>

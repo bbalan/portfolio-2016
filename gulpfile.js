@@ -101,7 +101,8 @@
         log && gutil.log('Copying binaries.');
 
         gulp.src(src)
-            .pipe(gulp.dest(dest));
+            .pipe(gulp.dest(dest))
+            .pipe(livereload({quiet: true}));
     });
 
     // Copy scripts, .htaccess and php files into the root directory
@@ -113,7 +114,8 @@
         log && gutil.log('Copying extras.');
 
         gulp.src(src)
-            .pipe(gulp.dest(dest));
+            .pipe(gulp.dest(dest))
+            .pipe(livereload({quiet: true}));
     });
 
     // Minify images directly in dest directory. Designed to run separately from main tasks.
@@ -138,7 +140,32 @@
 
 
 
-/* === CSS === */
+/* === HTML MARKUP === */
+
+    // Preprocess Jade files.
+    // Source file pattern is "html/**/!(_)*.jade", this
+    // ignores files that start with an underscore, e.g. _template.jade
+    // @TODO: livereloads before HTML processing is done
+    gulp.task('markup', function() {
+
+        var src  = config.src + config.markup.src,
+            base = config.src + config.markup.basedir,
+            dest = config.environments[env].dest + config.markup.dest;
+
+        log && gutil.log('Rebuilding Jade.');
+
+        gulp.src(src)
+            .pipe(jade({basedir: base, pretty: true}).on('error', handleError))
+            .pipe(gulpif(env != 'dev', minifyHtml({ empty: true })))
+            .pipe(gulp.dest(dest))
+            .pipe(livereload({quiet: true}));
+    });
+
+
+
+
+
+/* === CSS STYLES === */
 
     // Preprocess stylesheets.
     gulp.task('styles', function() {
@@ -172,6 +199,7 @@
 
         livereload.listen();
         gulp.watch(config.src + config.assets.watch,  ['assets']  );
+        gulp.watch(config.src + config.markup.watch,  ['markup']  );
         gulp.watch(config.src + config.styles.watch,  ['styles']  );
     });
 
@@ -187,7 +215,7 @@
 
     // Configure settings, copy assets and run preprocessors.
     gulp.task('build', function() {
-        runSequence([ 'setEnv', 'assets', 'styles', ]);
+        runSequence([ 'setEnv', 'assets', 'markup', 'styles' ]);
         
     });
 

@@ -1,0 +1,25 @@
+extends ../templates/_project
+
+block variables
+    - var projectTitle = 'Notch Video'
+    - var projectAgency = 'Playground Inc'
+    - var projectNext = firstProject
+    - var projectLink = 'http://www.notchvideo.com'
+
+block text
+    p Notch Video helps companies connect with video creators picked from their vast database of freelancers.
+    p I built them an HTML5 video player with custom controls, a parallax scrolling feature page and a multi-stage order form hooked into the Stripe API.
+    p I also created a custom Tumblr theme that matches the look of the rest of the site, along with branded HTML email newsletters.
+
+block tech
+    li Django
+    li Python
+    li HTML5 video
+    li Stripe
+
+block screenshots
+    .screenshot.full-width.browser-frame.no-caption.loader
+        img(data-src="/img/screenshots/notch-1.jpg")
+
+    .screenshot.full-width.browser-frame.no-caption.loader
+        img(data-src="/img/screenshots/notch-2.jpg")

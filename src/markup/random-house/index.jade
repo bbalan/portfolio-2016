@@ -1,0 +1,28 @@
+extends ../templates/_project
+
+block variables
+    - var projectTitle = 'Random House'
+    - var projectAgency = 'Playground Inc'
+    - var projectNext = firstProject
+    - var projectLink = 'http://www.wnetwork.com'
+
+block text
+    p Random House Canada's new site relies on the Drupal CMS to serve curated editorials and entertainment articles. 
+
+    p I worked on both the front-end and back-end, assembling components like Hazlitt magazine, which can display numerous content types in a bewildering variety of layouts.
+
+    p I also programmed numerous small details across the site, such as books and related posts that that appear along the sidebars at the precise location where they are referenced.
+
+block tech
+    li HTML
+    li CSS
+    li jQuery
+    li Drupal
+    li PHP
+
+block screenshots
+    .screenshot.full-width.browser-frame.no-caption.loader
+        img(data-src="/img/screenshots/rh-1.jpg")
+
+    .screenshot.full-width.browser-frame.no-caption.loader
+        img(data-src="/img/screenshots/rh-3.jpg")

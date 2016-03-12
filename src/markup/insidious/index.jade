@@ -1,0 +1,25 @@
+extends ../templates/_project
+
+block variables
+    - var projectTitle = 'Insidious VR'
+    - var projectAgency = 'Secret Location'
+    - var projectNext = 'ytv'
+    //- @TODO: link to Google Play store
+    - var projectLink = 'broken'
+
+block text
+    p I crafted this 360 video app with Unity 3D and Google Cardboard. I also helped put together a real-time version for Oculus Rift. 
+    p Using a stereoscopic 360 video supplied by our motion team, I built a scary experience with chilling audio effects, a touch-enabled intro sequence and an interactive 3D lobby. 
+    p I then handled deployment to Android and iOS, where it currently boasts a 4.3 rating on Google Play!
+
+block tech
+    li Unity 3D
+    li C#
+    li Oculus Rift
+    li Google Cardboard
+
+block screenshots
+    //- @TODO: replace with new video
+    .screenshot.browser-frame.full-width.video
+        iframe(src="https://www.youtube.com/embed/k5LhWagTmgI?vq=hd720" frameborder="0" allowfullscreen)
+    p.caption.big.middle Hit Play and drag your mouse to look around!

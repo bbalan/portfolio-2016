@@ -1,0 +1,35 @@
+extends ../templates/_project
+
+block variables
+    - var projectTitle = 'W Network'
+    - var projectAgency = 'Playground Inc'
+    - var projectNext = 'organic-panic'
+    - var projectLink = 'http://www.wnetwork.com'
+
+block text
+    p For this award-winning Drupal site, I built a slick responsive theme that works on every possible device.
+    p I also did front-end integration with APIs for video playback, live schedule listings, newsletter signup, a remote movie database, every major social network, and the client's ad network.
+    p I was equally involved in the back and front end &mdash; writing scripts, styling pages and configuring the CMS to match our designer's vision. 
+
+block tech
+    li HTML
+    li CSS
+    li jQuery
+    li Drupal
+    li PHP
+
+block screenshots
+    .screenshot.browser-frame.full-width.loader
+        img(data-src="/img/screenshots/w-1.jpg")
+    p.caption.big.right Content areas, widgets and advertising positions on any page are easily re-arranged through the CMS thanks to the Panels module.
+
+    .screenshot.full-width.width-100.loader
+        img(data-src="/img/screenshots/w-responsive-png8.png")
+
+    p.caption.big Every widget on every page is fully responsive &mdash; articles, videos, recipes, search results, the schedule, even the ads.
+
+    .caption.award
+        p.winner Winner
+        p.award-title Canadian Online Publishing Awards
+        p Best website design
+        p Best cross platform initiative

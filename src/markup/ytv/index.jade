@@ -1,0 +1,36 @@
+extends ../templates/_project
+
+block variables
+    - var projectTitle = 'YTV Channel'
+    - var projectAgency = 'Playground Inc'
+    - var projectNext = 'w-network'
+    - var projectLink = 'http://www.ytv.com'
+
+block text
+    p YTV's playfully simple design belies a project of tremendous complexity. 
+    p I was responsible for coding the front end for most of the primary UI components &mdash; the content grid, hero slider, content overlay, special effects for the "Don't Press Me" button, and many others. Everything is responsive.
+    p I also contributed to significant parts of the back end with several custom Drupal modules, including a powerful site-wide skinning engine.
+
+block tech
+    li HTML5
+    li CSS3
+    li jQuery
+    li Drupal
+    li PHP
+
+block screenshots
+    .screenshot.browser-frame.full-width.loader
+        img(data-src="/img/screenshots/ytv-1-sm.jpg")
+    p.caption.big.middle I used Packery to assemble the semi-random content grid, and wrote a custom Drupal module to automatically generate SVG masks for the skewed grid cells.
+
+    .screenshot.carousel.browser-frame
+        img.tablet-carousel(data-src="/img/screenshots/ytv-skin-0.jpg")
+        img.tablet-carousel(data-src="/img/screenshots/ytv-skin-1.jpg")
+        img.tablet-carousel(data-src="/img/screenshots/ytv-skin-2.jpg")
+
+    p.caption.big.middle I also wrote a Skin module that enables changing the entire site's appearance directly through the CMS, with changes reflected instantly in a live preview window. Skins are assigned to prominent shows and holiday events.
+
+    .screenshot.browser-frame.full-width.loader
+        img(data-src="/img/screenshots/ytv-dp-3.jpg")
+
+    p.caption.big.middle I had a lot of fun using CSS3 transforms, SVG graphics, spritesheets and HTML5 Audio to build various wacky special effects for the "Don't Press Me" button. It received over 35,000 clicks in a single day.

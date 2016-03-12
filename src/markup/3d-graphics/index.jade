@@ -1,0 +1,37 @@
+extends ../templates/_project
+
+block variables
+    - var projectTitle = '3D Graphics'
+    - var projectAgency = 'Personal work'
+    - var projectNext = firstProject
+    - var projectLink = 'broken'
+
+block text
+    p Creating 3D renders, animation and game art is one of my favorite hobbies. I've been pursuing these skills on the side for more than 15&nbsp;years.
+
+    p The tools, concepts and language I picked up helped me directly collaborate with more experienced 3D artists on agency projects.
+
+    p Check out #[a(href="/kia-motors").ajax-link Kia Accessory 360] and #[a(href="/insidious").ajax-link Insidious VR] to see how this experience paid off.
+
+block tech
+    li 3D Studio Max
+    li Maya
+    li Cinema 4D
+    li V-Ray
+    li Photoshop
+
+block screenshots
+    .screenshot.carousel.browser-frame(data-desktop-frames=2)
+        img.tablet-carousel(data-src="/img/screenshots/fordgt_front_by_bogdan_balan.jpg")
+        img.tablet-carousel(data-src="/img/screenshots/fordgt_rear_by_bogdan_balan.jpg")
+    p.caption.big.right This intricately detailed Ford GT is a labor of love spanning 6&nbsp;months and 3&nbsp;million triangles. Everything is carefully hand-crafted, from the reflections in the headlights, to the pattern in the grille, to the writing on the tires.
+
+    .screenshot.carousel.browser-frame(data-desktop-frames=2)
+        img.tablet-carousel(data-src="/img/screenshots/fujifilm_f100fd_front_by_bogdan_balan.jpg")
+        img.tablet-carousel(data-src="/img/screenshots/fujifilm_f100fd_back_by_bogdan_balan.jpg")
+    p.caption.big.left This Fujifilm camera was built as an exercise in photo-realism. I used anisotropic reflections and a custom LCD material to get every detail just right.
+
+    .screenshot.carousel.browser-frame(data-desktop-frames=2)
+        img.tablet-carousel(data-src="/img/screenshots/micro-uzi.jpg")
+        img.tablet-carousel(data-src="/img/screenshots/pirate.jpg")
+    p.caption.big.right These low-poly models were meant to be used as real-time game assets. The gun was created for GTA: San Andreas and weighs in at 335&nbsp;triangles, with a hand-painted 256x512&nbsp;texture. The pirate is created from a concept I drew myself.

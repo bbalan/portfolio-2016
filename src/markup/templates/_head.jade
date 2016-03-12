@@ -1,0 +1,55 @@
+doctype html
+
+html
+    head
+
+        - var firstProject = "gaming-show"
+
+        block variables
+        block static
+
+        //- title
+        title!= pageTitle
+
+        //- favicon
+        //- @TODO: favicon
+        link(rel="icon" type="image/png" href="")
+        link(rel="apple-touch-icon" href="")
+        link(rel="apple-touch-icon" sizes="57x57" href="")
+        link(rel="apple-touch-icon" sizes="72x72" href="")
+        link(rel="apple-touch-icon" sizes="114x114" href="")
+
+        //- SEO
+        meta(charset="utf-8")
+        meta(name="keywords" content="")
+        meta(name="description" content="")
+
+        //- mobile
+        //- @TODO: icons
+        meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no")
+        meta(name="apple-mobile-web-app-capable" content="yes")
+        meta(name="apple-mobile-web-app-status-bar-style" content="black")
+
+        //- facebook 
+        //- @TODO: fill this out
+        meta(property="og:site_name" content="")
+        meta(property="og:title" content="")
+        meta(property="og:type" content="tv_show")
+        meta(property="og:url" content="")
+        meta(property="og:image" content="")
+        meta(property="og:description" content="")
+
+        script.
+          // adaptive images
+          document.cookie='resolution='+Math.max(
+            screen.width/('devicePixelRatio' in window ? devicePixelRatio : 1),screen.height/('devicePixelRatio' in window ? devicePixelRatio : 1))+('devicePixelRatio' in window ? ','+devicePixelRatio : ',1')+'; path=/';
+
+        //- css
+        link(rel="stylesheet" href="/css/app.css" type="text/css")
+      
+    body.transition-hidden.transition-first.hide-copy.scroll-top
+        
+        block main
+
+        //- script(src="/scripts/libs.js" type="text/javascript")
+        //- script(src="/js/app.js" type="text/javascript")

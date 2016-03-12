@@ -1,0 +1,36 @@
+extends ../templates/_project
+
+block variables
+    - var projectTitle = 'Kia Accessory 360'
+    - var projectAgency = 'Cyclone Creative'
+    - var projectNext = 'insidious'
+    - var projectLink = 'http://www.kia.ca/soul'
+
+block text
+    p This interactive turntable is a cross-browser, touch-enabled jQuery plugin that works on any browser and any device. Try it out below.
+    p For this project, I both wrote the plugin and produced a huge number of 3D assets. I single-handedly modeled, textured and rendered 60 unique accessories on 11 different cars!
+
+block tech
+    li jQuery
+    li HTML &amp; CSS
+    li 3ds max
+    li V-Ray
+
+block screenshots
+    link(rel="stylesheet" type="text/css" href="/kia-accessory-360/kia360vr/kia360.css")
+    script(defer="defer" type="text/javascript" src="/kia-accessory-360/kia360vr/kia360vr-0.13.4.js")
+    script(defer="defer" type="text/javascript" src="/kia-accessory-360/kia-embed.js")
+
+    #kia-wrapper.browser-frame
+        #kia-360-portfolio-container
+
+    p.caption.big.middle Try rotating the car, selecting different colors, and customizing the accessories.
+
+    .screenshot.full-width.browser-frame
+        .screenshot.half-width.loader
+            img(data-src="/img/screenshots/kia-soul.jpg")
+        .screenshot.half-width.loader
+            img(data-src="/img/screenshots/kia-sportage.jpg")
+        .clearfix
+
+    p.caption.big.middle I rendered every car and accessory into separate 24-frame filmstrips, then precisely layered them on top of each other. Endless combinations are possible.

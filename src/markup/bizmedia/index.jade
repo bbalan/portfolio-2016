@@ -1,0 +1,23 @@
+extends ../templates/_project
+
+block variables
+    - var projectTitle = 'BizMedia'
+    - var projectAgency = 'Playground Inc'
+    - var projectNext = firstProject
+    - var projectLink = 'http://www.bizmedia.com'
+
+block text
+    p I built a cross-browser HTML5 player with custom controls and a Flash-based fallback for BizMedia's full-screen video portfolio.
+    p Each video project page is separated into full-screen slides that snap into position on scroll. Every element is responsive.
+
+block tech
+    li HTML5 Video
+    li CSS3
+    li jQuery
+
+block screenshots
+    .screenshot.full-width.browser-frame.no-caption.loader
+        img(data-src="/img/screenshots/biz-1.jpg")
+
+    .screenshot.full-width.browser-frame.no-caption.loader
+        img(data-src="/img/screenshots/biz-2.jpg")

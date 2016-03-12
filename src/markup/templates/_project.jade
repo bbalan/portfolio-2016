@@ -1,0 +1,55 @@
+extends _page
+
+block variables
+    - var projectTitle = 'Project Title'
+    - var projectAgency = 'Project Agency'
+    - var projectNext = firstProject
+    - var projectLink = 'http://www.projectwebsite.com'
+
+block static
+    - var pageTitle = projectTitle + ' | Bogdan Balan'
+
+block content
+    #project
+        #copy
+            #title
+                h2= projectTitle
+
+                p.agency
+                    if projectAgency != 'Personal work'
+                        | Agency: 
+                        span= projectAgency
+                    else 
+                        span= projectAgency
+
+            #desc
+                #text
+                    block text
+                        p Project description goes here.
+
+                ul#tech
+                    block tech
+                        li Code
+                        li Programming
+                        li Web things
+
+                a.info(href="#") Details
+
+                block link
+                    if projectLink == 'broken'
+                        a.launch(href="#" target="_blank").broken &nbsp;
+                    else
+                        a.launch(href="#{projectLink}" target="_blank") Launch
+
+        .clearfix
+
+        #screenshots
+            block screenshots
+                p Screenshots go here
+
+        a(href="/"+projectNext).next-project.ajax-link Next Project
+        .clearfix
+
+    h2 More work
+
+    include _grid

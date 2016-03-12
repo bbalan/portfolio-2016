@@ -1,0 +1,26 @@
+extends ../templates/_project
+
+block variables
+    - var projectTitle = 'Organic Panic'
+    - var projectAgency = 'SecretLocation'
+    - var projectNext = firstProject
+    - var projectLink = 'http://www.organicpanictv.com'
+
+block text
+    p For this Angular-powered website, I put together most of the templates, styles, and front-end UI. The back end uses a proprietary CMS.
+
+    p The site's coolest feature is a custom video player, which runs entirely on Angular. Users can swipe left and right to select opposing viewpoints, and vote on which one they like best.
+
+block tech
+    li Angular JS
+    li Gulp
+    li HTML5
+    li CSS3
+    li YouTube API
+
+block screenshots
+    .screenshot.full-width.browser-frame.no-caption.loader
+        img(data-src="/img/screenshots/op1.jpg")
+
+    .screenshot.full-width.browser-frame.no-caption.loader
+        img(data-src="/img/screenshots/op2.jpg")

@@ -1,0 +1,23 @@
+extends ../templates/_project
+
+block variables
+    - var projectTitle = 'LA Philharmonic'
+    - var projectAgency = 'Secret Location'
+    - var projectNext = 'insidious'
+    - var projectLink = 'http://www.laphil.com/orchestravr'
+
+block text
+    p For this challenging VR project, I used Unity to build a stereoscopic 3D video player, and deployed it to multiple VR platforms.
+    p After donning the VR device, users are immersed in a live orchestra experience. Fireworks dance around with full stereoscopic depth while Beethoven's 5th plays through a custom directional audio engine.
+    p The app is available on Oculus Rift and Samsung Gear VR.
+
+block tech
+    li Unity 3D
+    li C#
+    li Oculus Rift
+    li Gear VR
+
+block screenshots
+    .screenshot.browser-frame.full-width.video
+        iframe(src="https://www.youtube.com/embed/j-vtJYmia_o?vq=hd720" frameborder="0" allowfullscreen)
+    p.caption.big.middle Hit Play, bump up the quality and try dragging around with your mouse!

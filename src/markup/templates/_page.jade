@@ -1,0 +1,36 @@
+extends _head
+
+block variables
+block static
+
+block main
+    //- 3d background wrapper
+    #tris 
+
+    //- container that enables scroll
+    #scroll
+        #wrapper
+            a#header.ajax-link(href="/")
+                #logo
+                    .slice.slice-1
+                        img(src="/img/logo-bb-sprite.svg")
+                    .slice.slice-2
+                        img(src="/img/logo-bb-sprite.svg")
+                    .slice.slice-3
+                        img(src="/img/logo-bb-sprite.svg")
+                h1 Bogdan Balan
+                span Web developer 
+                //-<b>/</b> designer
+
+            #content
+                block content
+                    p &nbsp;
+
+            #contact
+                h2 Contact
+                //- p.phone
+                //-     span p
+                //-     a(href="tel:4168326782") 416-832-6782
+                p.email
+                    span e
+                    a(href="mailto:bogdan@bogdanbalan.com") bogdan@bogdanbalan.com

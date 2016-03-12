@@ -1,0 +1,39 @@
+extends ../templates/_project
+
+block variables
+    - var projectTitle = 'Disney Gaming Show'
+    - var projectAgency = 'Secret Location'
+    - var projectNext = 'kia-motors'
+    - var projectLink = ''
+
+block static
+    - var pageTitle = 'Gaming Show'
+
+block text
+    p During this fast-paced project, I worked with a diverse team of developers to collect user-generated content and use it to build a side-scroller game.
+    p I was responsible for programming the various tools used by kids to create pixel art, draw backgrounds and compose music. I also built much of the final game's UI.
+    p My code was maintainable, thoroughly commented, and it exposed a powerful API. It easily hooked into other developers' components, and performed flawlessly with minimal integration.
+
+block tech
+    li HTML5 Canvas
+    li Web Audio
+    li CSS3
+    li jQuery
+    li Gulp
+
+block screenshots
+    //- @TODO: add video
+
+    .screenshot.browser-frame.full-width.loader
+        img(data-src="/img/screenshots/disney-3.png")
+
+    p.caption.big.right The site prompted users to draw pixel art characters, and watch them come alive in a simple side-scroller game. We received thousands of submissions. I built all the art tools, and had lots of fun drawing some of the included characters!
+
+    .screenshot.browser-frame.full-width.loader
+        img(data-src="/img/screenshots/disney-1.png")
+    p.caption.big.right I used HTML5 Canvas for the drawing surface, and separate DOM elements for the color palette, eraser, history buttons and text fields.
+
+    .screenshot.browser-frame.full-width.loader
+        img(data-src="/img/screenshots/disney-2.png")
+
+    p.caption.big For the music composer, I built a robust MVC architecture to handle playback, scrubbing, editing and UI updates. A separate sound manager class provides Web Audio support with an HTML5 Audio fallback for IE9. The various components communicate through custom events.

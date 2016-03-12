@@ -1,0 +1,22 @@
+#grid
+
+    - var projects = [{ title: 'Gaming Show', stub: 'gaming-show' }, { title: 'Kia Motors', stub: 'kia-motors' }, { title: 'Insidious', stub: 'insidious' }, /*{ title: 'LA Philhamonic', stub: 'la-phil' },*/ { title: 'YTV Channel', stub: 'ytv' }, { title: 'W Network', stub: 'w-network' }, { title: 'Organic Panic', stub: 'organic-panic' }, /*{ title: '3D Graphics', stub: '3d-graphics' }*/]
+
+    each project, idx in projects
+        - var fileName = project.stub;
+        - var projectTitle = project.title;
+
+        a.ajax-link(class="grid-link #{idx}" href="/#{fileName}" alt="#{projectTitle}")
+
+            .logo-wrapper
+                .logo.logo-white
+                    img(src="/img/logo-#{fileName}.svg")
+                .logo.logo-green
+                    img(src="/img/logo-#{fileName}-g.svg")
+            .bg-wrapper
+                .bg.light
+                    img(src="/img/grid-bg-light.svg")
+                .bg.dark
+                    img(src="/img/grid-bg-dark.svg")
+                        
+.clearfix

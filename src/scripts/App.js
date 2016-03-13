@@ -1,5 +1,3 @@
 import Test from './TestModule.js'
 
-console.log('It works! sdfsdf', Test);
-
-console.log('fuuuuck');
+console.log('It works!', Test);

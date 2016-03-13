@@ -1,0 +1,220 @@
+speed        = 0.2s
+stagger      = 0.05s
+logoDelay    = 0.1s
+contentDelay = 0.3s
+gridDelay    = 0.2s
+gridStagger  = 0.05s
+
+.transition-hidden *
+    transition all 0s !important
+
+body #scroll #wrapper .transition-now
+    transition-delay 0s !important
+
+#header
+    h1
+        transition all 0.2s logoDelay
+    span
+        transition all 0.2s (logoDelay + 0.05s)
+
+    h1, span
+        transform-origin left center
+        .transition-out &
+            opacity 0
+            transform translate3d(30px,0,0)
+
+        .transition-hidden &
+            opacity 0
+            transform translate3d(-30px,0,0) scale(1)
+
+        .transition-in &
+            opacity 1
+            transform none
+            transition-timing-function ease-out
+/*
+        .scroll-top.transition-hidden &
+        .scroll-top.transition-out &
+        .scroll-top.transition-in &
+            opacity 1
+            transform none
+            transition-timing-function ease-out
+*/
+// paragraph copy, headers, etc
+#intro > *,
+#desc > *,
+#contact > *,
+#project h2,
+#project a,
+.agency,
+#tech li
+        transition all speed ease-in-out
+        transform-origin left center
+
+        .transition-out &
+            opacity 0
+            transform translate3d(30px,0,0)
+
+        .transition-hidden &
+            opacity 0
+            transform translate3d(-30px,0,0) scale(1)
+            transition all 0s !important
+
+        .transition-in &
+            opacity 1
+            transform none
+            transition-timing-function ease-out
+
+        for i in (1..20)
+            .transition-out &,
+            .transition-hidden &,
+            .transition-in &
+                &:nth-child({i})
+                    transition all 0.2s ((i - 1) * stagger + contentDelay)
+
+#contact > *
+    for i in (1..20)
+        &:nth-child({i})
+            transition all 0.2s ((i - 1) * stagger + gridDelay)
+    
+// force hide text containers
+#intro,
+#project
+    .transition-out &,
+    .transition-hidden &,
+    .transition-in &
+        transition all speed 0.5s ease-in-out
+
+    .transition-out &
+        opacity 0
+
+    .transition-hidden &
+        opacity 0
+        transition all speed
+
+    .transition-in &
+        opacity 1
+        transition all speed
+
+#content > h2 // "work", "more work"
+
+    transition all speed 0.4s ease-in-out
+    transform-origin left center
+
+    .transition-out &
+        opacity 0
+        transform translate3d(30px,0,0)
+
+    .transition-hidden &
+        opacity 0
+        transform translate3d(-30px,0,0)
+
+    .transition-in &
+        opacity 1
+        transform none
+        transition-timing-function ease-out
+
+.info
+    .transition-out &,
+    .transition-hidden &,
+    .transition-in &
+        pointer-events none
+        opacity 0
+
+#screenshots *
+    transition all 0.4s 0.5s
+
+    .transition-out &
+        opacity 0
+        transform translate3d(30px,0,0)
+        transition all 0.4s 0.5s !important
+
+    .transition-hidden &
+        opacity 0
+        transform translate3d(-30px,0,0)
+        transition all 0.4s 0.5s !important
+
+    .transition-in &
+        opacity 1
+        transform none
+        transition-timing-function ease-out
+        transition all 0.4s 0.5s !important
+
+#tris
+    transition all 2s !important
+    .transition-first &
+        opacity 0
+/*
+#tris
+    transition all 0.6s
+
+    .transition-out &
+        opacity 0
+
+    .transition-hidden &
+        opacity 0
+
+    .transition-in &
+        opacity 0.05
+*/
+/*
+#grid
+    transition all 0.2s gridDelay
+
+    .transition-out &
+        opacity 0
+
+    .transition-hidden &
+        opacity 0
+
+    .transition-in &
+        opacity 1
+*/
+
+.grid-link
+    .transition-out &
+        .logo-wrapper
+            opacity 0
+            transform perspective(500px) scale(0.9)
+            transform-origin center center
+        .line-wrapper
+            opacity 0
+        .bg-wrapper
+            opacity 0
+        
+    .transition-hidden &
+        .logo-wrapper
+            opacity 0
+            transition all 0s
+            transform perspective(500px) scale(0.9)
+            transform-origin center center
+        .line-wrapper
+            opacity 0
+        .bg-wrapper
+            opacity 0
+        
+    .transition-in &
+        .logo-wrapper
+            opacity 1
+            transform none
+            transform-origin center center
+        .line-wrapper
+            opacity 0.2
+        .bg-wrapper
+            opacity 1
+
+    for i in (1..9)
+        &:nth-child({i})
+            .logo-wrapper
+                transition all 0.2s ((i - 1) * gridStagger + gridDelay)
+            .bg-wrapper
+                transition all 0.2s ((i - 1) * gridStagger + gridDelay) ease-in
+
+.transition-out .grid-link
+    for i in (1..9)
+        &:nth-child({i})
+            *
+                transition all 0.2s ((i - 1) * gridStagger) !important
+                
+#kia-wrapper
+    transition none !important
+    // transform none !important

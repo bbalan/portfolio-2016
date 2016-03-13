@@ -1,0 +1,518 @@
+#project
+    @media phone
+        margin-bottom 0px
+
+#title
+    width 230px
+    margin-right 85px
+    float left
+
+    h2
+        margin-top 0
+        margin-bottom 25px
+
+    .agency
+        font-size 16px
+        color lightBlue
+
+    @media phone
+        width 100%
+        //margin-bottom 20px
+
+#copy
+    @media phone
+        margin-bottom 30px
+
+        .hide-copy &
+            margin-bottom 20px
+
+#desc
+    width 520px
+    float left
+    margin-top 5px //75px
+    line-height 1.5em
+    position relative
+
+    p
+        cursor text
+
+    p:first-child
+        margin-top 0
+
+    p:last-child
+        margin-bottom 0
+
+    @media desktop
+        margin-bottom 30px
+
+    @media tablet
+        margin-top 0
+        margin-bottom 20px
+
+    @media phone
+        width 100%
+        position relative
+        margin-top 0
+        margin-bottom 20px
+
+#tech
+    width 135px
+    cursor text
+
+    &:before
+        content "Tech"
+        display inline-block
+        color white
+        font-family Roboto Condensed, Helvetica, Arial, sans-serif
+        text-transform uppercase
+        font-size 16px
+
+        @media desktop
+            margin-bottom 15px
+
+        @media tablet, phone
+            //content "Tech:"
+            margin-right 10px
+            display none
+
+        @media phone
+            display none
+
+    li
+        font-size 16px
+        list-style-type none
+        color lightBlue
+
+    @media desktop
+        position absolute
+        top 0
+        right -200px
+        margin-top 0
+
+    @media screen and (max-width: 1280px)
+        width auto
+        // max-width 400px
+        margin 0
+        padding 0
+        float none
+        clear both
+        position absolute
+        left 0
+        bottom 20px
+
+        li
+            display inline
+
+            &:after
+                display inline
+                content "/"
+                margin 0 4px 0 7px
+
+            &:last-child:after
+                display none
+
+    @media phone
+        position relative
+        bottom 0
+        margin 25px 0 0 0
+        text-align left
+        max-width none
+
+        li:after
+            margin 0 0 0 3px
+            
+.launch.broken
+    visibility hidden
+    
+    @media desktop
+        margin-bottom -30px
+    
+    @media phone
+        height 0 !important
+        padding 0 !important
+
+.launch,
+.info,
+.next-project
+    text-transform uppercase
+    font-size 14px
+    font-weight bold
+    float right
+    padding 20px
+    position relative
+    right -12px
+    transition all 0.2s
+
+    &:after,
+    &:before
+        display inline-block
+        content ">"
+        margin-left 5px
+        font-family Icons
+        font-size 1.2em
+        position absolute
+        top 21px
+        right 0
+        width 25px
+        overflow hidden
+        transform translate3d(0,0,0)
+
+    &:before
+        transform translate3d(-10px,0,0)
+        opacity 0
+
+    &:hover
+        &:after
+            opacity 0
+            transform translate3d(10px,0,0)
+            transition all 0.2s
+        &:before
+            opacity 1
+            transform translate3d(0,0,0)
+            transition all 0.2s 0.1s, color 0.1s
+
+    @media desktop
+        margin-top 20px
+        padding 10px
+
+        &:after,
+        &:before
+            top 11px
+
+    @media tablet
+        margin-top 20px
+
+    @media phone
+        //top 50px
+
+.launch,
+.next-project
+    padding-right 30px
+
+.next-project
+    margin 0
+    top 0
+
+    @media desktop, tablet
+        position relative
+        top -20px
+        margin-bottom -100px
+
+    @media desktop
+        top -10px
+
+    @media phone
+        float left
+        right 20px
+
+.info
+    pointer-events none
+    opacity 0
+    float left
+    right 0
+    top 0
+    left -10px
+    padding-left 30px
+
+    @media desktop
+        display none !important
+    @media tablet
+        display none !important
+    @media phone
+        display block
+
+        &:after,
+        &:before
+            right auto
+            left 5px
+            top 20px
+            content "+"
+            font-family Open Sans, Helvetica, Arial, sans-serif
+
+        &:before
+            transform translate3d(0,-10px,0)
+
+        &:hover
+            &:after
+                transform translate3d(0,10px,0)
+            &:before
+                transform translate3d(0,0,0)
+
+#screenshots
+
+    @media desktop, tablet
+        margin-bottom 100px
+
+    .screenshot
+        transition all 0.2s
+        position relative
+
+    .screenshot img
+        opacity 0
+        transition all 0.4s
+        max-width 100%
+        height auto
+
+        & + .caption
+            height 0
+            opacity 0
+
+        &.visible
+            opacity 1
+            transform translate3d(0,0,0)
+            & + .caption
+                height auto
+                opacity 1
+                
+    .full-width
+        width 100%
+        height auto
+        line-height 0
+        letter-spacing 0
+
+        @media desktop
+            width 121%
+            margin-left -11%
+
+        @media phone
+            width 116.279069767442%
+            margin-left -8.139534883721%
+
+    .half-width
+        width 49.7%
+        float right
+
+        &:first-child
+            float left
+
+
+        @media tablet
+            width 100%
+            margin 0 
+            float none
+
+            &:first-child
+                margin-bottom 5px
+
+        @media phone
+            width 100%
+            margin 0 
+            float none
+
+            &:first-child
+                margin-bottom 5px
+
+    .no-caption
+        margin-bottom 30px
+
+    .width-100
+        @media phone
+            width 100%
+            margin-left 0
+
+    .carousel
+        @media desktop
+            width 121%
+            margin-left -11%
+        @media phone
+            width 116.279069767442%
+            margin-left -8.139534883721%
+
+        &.browser-frame
+            border-top-width 5px
+
+    .browser-frame
+        padding 5px
+        //border-top-width 30px
+        border-radius 4px
+        background rgba(0,0,0,0.2) url('') no-repeat center center
+
+        @media phone
+            padding 0
+            border-radius 0
+        
+    .video
+        padding-top 60%
+        
+        iframe
+            position absolute
+            top 0
+            left 0
+            width 100%
+            height 100%
+
+.loader
+    min-height 200px
+    //background-image url('/img/img-loader.gif') !important
+
+.caption
+    color white
+    //font-style italic
+    margin 20px 0 100px 0
+    padding-right 5px
+    position relative
+
+    @media phone
+        line-height 1.5em
+        margin-bottom 60px
+
+    &.big
+        @media desktop
+            width 55%
+            padding-right 0
+            
+            &.middle
+                margin-left 315px
+
+            &.left 
+                margin-left 0
+
+            &.right
+                margin-left 45%
+            /*
+            margin-left 0
+            margin-right auto
+            text-align center
+            */
+        @media tablet
+            margin-left 315px
+
+    &.left
+        @media tablet
+            margin-left 0
+            margin-right 315px
+
+    &:last-child
+        margin-bottom 20px
+
+    &.award
+        
+        color lightBlue
+        margin-bottom 60px
+        
+        @media desktop
+            /*
+            text-align center
+            margin-top 70px
+            */
+            padding-left 80px
+        
+        @media tablet
+            padding-left 315px
+
+        @media phone
+            padding-left 70px
+
+        p
+            margin-top 0
+            margin-bottom 0
+
+            &.winner
+                color white
+                font-family Roboto Condensed, Helvetica, Arial, sans-serif
+                text-transform uppercase
+                font-size 20px
+                margin-bottom 10px
+            &.award-title
+                color white
+                margin-bottom 10px
+
+        &:before
+            color lightBlue
+            content "a"
+            display block
+            font-family Icons
+            /*
+            @media desktop
+                font-size 100px
+                height 100px
+                position relative
+                top 40px
+                margin 0 0 50px 0
+                text-align center
+            */
+            @media desktop, tablet, phone
+                font-size 70px
+                width 50px
+                height 90px
+                position absolute
+                top 30px
+                left 0
+                float left
+                margin 0 20px 20px 0
+                text-align left
+
+            @media tablet
+                left 230px
+
+
+// "more info" button slideout
+@media phone
+    body.hide-copy
+        .info
+            pointer-events auto
+            opacity 1
+        #title,
+        #title h2
+            width 100%
+            margin-bottom 0
+
+        .agency,
+        #text,
+        #tech
+            height 0
+            opacity 0
+            padding 0
+            margin 0
+            overflow hidden
+
+        .launch
+            top 0
+
+#kia-wrapper.browser-frame
+    background white url('/kia-accessory-360/img/background-soul.png') no-repeat center top
+    padding 170px 50px 20px 300px
+    box-shadow 0px 0px 0px 5px rgba(0,0,0,0.15)
+    line-height 1em
+    box-sizing border-box
+    width 121%
+    margin-left -10.5%
+    transition all 0s !important
+
+    *
+        transition all 0s !important
+
+    @media desktop
+        padding-left 420px
+
+    @media tablet
+        width 100%
+        margin 0
+        background white
+        padding 40px 65px 20px 65px
+
+    @media (min-width 520px) and (max-width: 882px)
+        box-sizing border-box
+        width 116.279069767442%
+        margin-left -8.139534883721%
+        background white
+        padding 40px 20px 20px 20px
+
+    @media (max-width: 519px)
+        box-sizing border-box
+        background white
+        padding 20px
+        min-width 780px
+        width 116.279069767442% * 2
+        margin-left -8.139534883721%
+        margin-bottom -360px
+        height auto
+        transform scale(0.5)
+        transform-origin left top
+
+#kia360-spin-arrows
+    @media phone
+        top 275px !important
+
+#kia360-version
+    display none

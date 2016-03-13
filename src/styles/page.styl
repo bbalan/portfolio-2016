@@ -1,0 +1,304 @@
+html, 
+body
+    width 100%
+    margin 0
+    padding 0
+    position relative
+
+body
+    overflow-x hidden
+    max-width 100vw
+
+html
+    background darkBlue url('/img/noise-2.gif')
+    background-attachment fixed
+
+.clearfix
+    clear both
+
+.disable-hover,
+.disable-hover *
+    pointer-events none !important
+
+#wrapper 
+    width 1056px
+    margin 0 auto
+    font-family 'Open Sans', Helvetica, Arial, sans-serif
+    font-weight 300
+    font-size 16px
+    line-height 1.5em
+    color white
+    position relative
+    z-index 1
+
+    @media tablet
+        width 882px - (gridPadding * 2)
+
+    @media phone
+        width auto
+        padding 0 7%
+        line-height 1.8em
+        
+a
+    outline none
+
+
+a.next-project,
+a.info,
+a.launch,
+#contact a
+    color lightGreen
+    text-decoration none
+    transition all 0.2s
+    border-bottom 1px solid transparent
+
+    // &:hover
+    &:focus
+        color white
+        // border-bottom 1px solid lightBlue
+        
+    &:active
+        color white
+        //color lightGreen
+        //border-color white
+
+h1
+    font-family 'Roboto Condensed', Helvetica, Arial, sans-serif
+    font-weight 300
+    font-style normal
+    font-size 36px
+    text-transform uppercase
+    letter-spacing 1px
+    line-height 1em
+    color white
+    margin 0 0 13px 0
+
+h2
+    font-family 'Roboto Condensed', Helvetica, Arial, sans-serif
+    font-weight 300
+    font-style normal
+    font-size 24px
+    text-transform uppercase
+    letter-spacing 1.5px
+    line-height 1em
+    color white
+    margin 70px 0 50px 0
+    display block
+    width headerWidth
+    padding-bottom 25px
+    border-bottom 1px solid lightBlue
+
+    @media phone
+        width 100%
+        margin 45px 0 40px 0
+
+hr 
+    border none
+    height 1px
+    background lightBlue
+    width headerWidth
+    margin 70px 0
+
+#logo
+    width 41px
+    height 53px
+    position absolute
+    //top 95px
+    //left -110px
+    top 5px
+    left 0
+    user-select none
+
+    .no-css-transitions &
+        height 55px
+        background url('/img/logo-bb.svg') no-repeat 0px 0px
+
+        .slice
+            display none
+
+    @media tablet
+        //top 75px
+        left -15px
+
+    @media phone
+        position relative
+        top 0
+        left -15px
+        margin 40px 0
+
+    .slice
+        width 100%
+        height 100%
+        position absolute
+        top 0
+        overflow hidden
+        transition all 0.2s
+
+        img
+            position absolute
+            top 0
+            left 0
+
+    .slice-1
+        width 15px
+        left 15px
+        transition all 0.1s 0s linear !important
+        img
+            top 0
+            left -15px
+    .slice-2
+        width 25px
+        left 15px
+        transition all 0.3s 0.07s !important
+        img
+            top -53px
+            left -15px
+    .slice-3
+        width 41px
+        transition all 0.3s 0.1s !important
+        img
+            top -106px
+            left 0
+
+    &.stage-1,
+    .transition-hidden &
+        .slice
+            width 0
+            opacity 0
+    &.stage-2,
+    .transition-in &
+        .slice-1
+            width 15px
+        .slice-2
+            width 26px
+        .slice-3
+            width 41px
+    &.stage-3,
+    .transition-out &
+        .slice
+            width 0
+            opacity 0.3
+            &, img 
+                left auto
+                right 0
+        .slice-1
+            right 11px
+            img
+                right -11px
+/*
+    .scroll-top.transition-hidden &,
+    .scroll-top.transition-in &,
+    .scroll-top.transition-out &
+        .slice-1
+            width 15px
+            opacity 1
+        .slice-2
+            width 26px
+            opacity 1
+        .slice-3
+            width 41px
+            opacity 1
+*/
+
+#scroll
+    overflow-x hidden
+
+#header
+    max-width 280px
+    position relative
+    display block
+    text-decoration none
+    padding 0 0 0 110px
+    margin 95px 0 70px 0
+    left -110px
+    border none !important
+    background transparent
+
+    *
+        line-height 1em
+
+    @media tablet
+        padding-left 70px
+        //padding-top 70px
+        left 0
+
+    @media phone
+        padding 0
+        margin 10px 0 40px 0
+        left 0
+
+    span
+        font-family 'Open Sans', Helvetica, Arial, sans-serif
+        text-transform uppercase
+        font-weight 300
+        color lightGreen
+        font-size 14px
+        letter-spacing 1px
+        display block
+
+        b
+            color lightBlue
+            font-family Helvetica, Arial, sans-serif
+            font-weight bold
+            margin: 0 0 0 1px
+
+#intro
+    font-size 18px
+    margin-bottom: 70px;
+
+    h2 
+        margin-top 100px
+
+        @media phone
+            margin-top 60px
+
+#contact
+    margin-bottom 100px
+
+    span
+        font-family Icons
+        font-size 1.2em
+        margin-right 10px
+        position relative
+        top 3px
+
+    @media phone
+        margin-bottom 60px
+
+    a
+        margin-left 5px
+
+#tris
+    //position absolute
+    position fixed
+    top 0
+    left 0
+    width 100vw
+    height 100vh
+    opacity 0 !important
+
+    .no-webgl &
+        opacity 0.06 !important
+        background url('/img/tri-bg.svg') no-repeat right top
+    //background url('/img/UVTextureChecker.png') right top
+    //transform translate3d(0,0,-1px)
+    //z-index 1000
+        
+    .webgl.bg-ready &
+        opacity 1 !important
+        background none
+        
+    canvas
+        width 100%
+        height 100%
+
+    @media phone
+        background-position 50% top 
+        //opacity 0.08
+        //display none
+
+.dg.main
+    position absolute
+    top 0
+    left 0
+    height 500px

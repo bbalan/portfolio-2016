@@ -147,7 +147,6 @@
     // Preprocess Jade files.
     // Source file pattern is "html/**/!(_)*.jade", this
     // ignores files that start with an underscore, e.g. _template.jade
-    // @TODO: livereloads before HTML processing is done
     gulp.task('markup', function() {
 
         var src  = config.src + config.markup.src,
@@ -200,7 +199,6 @@
         runSequence([ 'scripts-app', 'scripts-libs' ]);
     });
 
-    // @TODO: doesn't work. replace with systemjs builder?
     // Execute jspm to transpile ES6 to ES5, minify and bundle.
     // The jspm terminal command & arguments are found in package.json, under "builddev" and "buildprod"
     gulp.task('scripts-app', function() {

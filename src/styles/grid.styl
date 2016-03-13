@@ -1,0 +1,250 @@
+#grid
+    width (gridPadWidth * 3)
+    margin 0 auto
+    position relative
+    user-select none
+    transform translate3d(0,0,1px)
+
+    @media desktop
+        margin-left (-1 * gridPadding) - 112px
+
+    @media tablet
+        width (gridPadWidth * 2)
+        left (-1 * gridPadding)
+        margin 0 auto
+
+    @media phone
+        width 100%
+        max-width 100%
+        left 0
+
+.grid-link
+    display block
+    width gridWidth
+    height gridHeight
+    position relative
+    float left
+    padding gridPadding
+    transition all 0.2s
+    border none !important
+    outline none
+
+    @media phone
+        padding 0
+        margin 5px auto
+        float none
+        width 100%
+        height 0
+        padding-top 60%
+
+    @media (min-width: 481px) and (max-width: 882px)
+        margin 0 2% 5px 0
+        float left
+        width 48%
+        padding-top 29%
+
+    .logo,
+    .bg
+        width 100%
+        height 100%
+        position absolute
+        overflow hidden
+
+    .line-wrapper
+        width 455px
+        height 1px
+        position absolute
+        top 50%
+        left 50%
+        margin-left: (-1 * gridHeight)
+        transition all 0.4s, opacity 0.5s 0.1s
+        transform rotate(30deg)
+        opacity 0.2
+        overflow hidden
+
+        @media phone
+            display none
+
+        .line
+            width 0
+            height 100%
+            opacity 0.2
+            position absolute
+            top 0
+            transition all 0.2s, width 0.5s 0s
+            background lightBlue
+
+        .line-1
+            left 0
+
+        .line-2
+            right 0
+
+    &:hover
+    &:focus
+        .line
+            opacity 1
+            width 50%
+        .line-wrapper 
+            opacity 0
+            transform rotate(30deg)
+
+        @media phone
+            .line-wrapper
+                display none
+
+    .logo-wrapper
+        width 100%
+        height 100%
+        position absolute
+        top 0
+        left 0
+        transition all 0.2s
+
+        opacity 1
+        transform-origin center top
+        transform none
+
+    &.visible .logo-wrapper
+        transform none
+        opacity 1
+
+    &:hover
+    &:focus 
+        .logo-wrapper 
+            transition all 0.2s
+
+    .logo
+        height 100%
+        transition all 0.2s
+
+        img 
+            position absolute
+            width gridWidth
+            height gridHeight
+            padding gridPadding
+            transition all 0.2s
+
+            @media phone 
+                width 100%
+                height 100%
+                padding 0
+        &.logo-white
+            opacity 1
+        &.logo-green
+            opacity 0
+    
+    /*
+    // can't do this, disabled by browsers for security reasons        
+    &:visited
+        .logo.logo-white
+            opacity 0.8 !important
+    */
+
+    &:hover
+    &:focus
+        .logo-green
+            opacity 1
+            transition all 0.2s, opacity 0.4s
+            @media phone
+                //display none
+
+    .project-title
+        text-align center
+        position absolute
+        bottom 30px
+        left 0
+        width 100%
+        font-family Roboto Condensed, Helvetica, Arial, sans-serif
+        text-transform uppercase
+        font-size 20px
+        opacity 0
+        transition all 0.15s
+        transform perspective(1000px) translate3d(0,5px,0) rotateX(-20deg)
+        color white !important
+
+    &:hover
+    &:focus
+        .project-title
+            opacity 1
+            transform none
+
+    .bg-wrapper
+        width 100%
+        height 100%
+        position absolute
+        top 0
+        left 0
+        transition all 0.2s ease-in
+
+        transform-origin center bottom
+        opacity 1
+
+    &.visible .bg-wrapper
+        opacity 1
+
+    .bg
+        opacity 0.05
+        width 100%
+        height 100%
+        position absolute
+        top 0
+        left 0
+        transition all 0.3s, opacity 0s
+
+        img 
+            position absolute
+            padding gridPadding
+
+            @media phone
+                width 100%
+                height 100%
+                padding 0
+
+        &.light
+            top 0
+            left 0
+            img 
+                top 0
+                left 0
+        &.dark
+            bottom 0
+            right 0
+            img 
+                bottom 0
+                left 0
+
+            opacity 0
+            width 90%
+
+            @media phone
+                width 100%
+
+    &:hover
+    &:focus
+        .bg.light
+            opacity 0
+            height 60%
+            transition all 0.2s ease-in, opacity 0.2s 0s
+            @media phone
+                height 100%
+                //opacity 0.05
+                transition all 0.2s
+        .bg.dark 
+            opacity 0.05
+            width 100%
+            transition all 0.2s ease-in, opacity 0.2s 0.05s
+            @media phone
+                transition all 0.2s
+                //display none
+
+.webgl .grid-link
+    .bg-wrapper
+    .line-wrapper
+        display none
+
+    .bg.light
+        height 100%
+
+    .bg.dark
+        display none

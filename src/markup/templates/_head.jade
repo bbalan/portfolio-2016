@@ -45,11 +45,11 @@ html
             screen.width/('devicePixelRatio' in window ? devicePixelRatio : 1),screen.height/('devicePixelRatio' in window ? devicePixelRatio : 1))+('devicePixelRatio' in window ? ','+devicePixelRatio : ',1')+'; path=/';
 
         //- css
-        link(rel="stylesheet" href="/css/app.css" type="text/css")
+        link(rel="stylesheet" href="/styles/app.css" type="text/css")
       
     body.transition-hidden.transition-first.hide-copy.scroll-top
         
         block main
 
         //- script(src="/scripts/libs.js" type="text/javascript")
-        //- script(src="/js/app.js" type="text/javascript")
+        script(src="/scripts/app.js" type="text/javascript")

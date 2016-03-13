@@ -1,8 +1,13 @@
 {
   "name": "bb-portfolio-2016",
   "version": "0.0.0",
-  "description": "Developer portfolio for Bogdan Balan, March 2016",
-  "main": "app.js",
+  "description": "Developer portfolio for Bogdan Balan, March 2016. Ported to Gulp from Docpad.",
+  "main": "App.js",
+  "scripts": {
+    "buildprod": "jspm bundle-sfx ./src/scripts/App.js ./build/prod/scripts/app.js --minify --skip-sourcemaps",
+    "builddev": "jspm bundle-sfx ./src/scripts/App.js ./build/dev/scripts/app.js --source-map-contents",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "gulp": "~3.9.1"
   },
@@ -25,11 +30,14 @@
     "gulp-concat": "~2.6.0",
     "gulp-jade": "~1.1.0",
     "gulp-minify-html": "~1.0.6",
-    "gulp-imagemin": "~2.4.0"
+    "gulp-imagemin": "~2.4.0",
+    "jspm": "~0.16.30",
+    "gulp-wait": "0.0.2"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC"
+  "author": "Bogdan Balan",
+  "license": "ISC",
+  "jspm": {
+    "dependencies": {},
+    "devDependencies": {}
+  }
 }

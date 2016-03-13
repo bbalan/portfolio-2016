@@ -28,6 +28,7 @@
     ,   runSequence = require('run-sequence')           // run tasks in order
     ,   gulpif      = require('gulp-if')                // execute operations conditionally
     ,   replace     = require('gulp-replace')           // string replacement (for env paths in js and css)
+    ,   wait        = require('gulp-wait')              // wait before continuing chain
 
     // dev helpers
     ,   connect     = require('gulp-connect')           // run local server
@@ -46,6 +47,7 @@
     
     // javascript
     ,   systemjs    = require('systemjs-builder')       // module loader
+    ,   exec        = require('child_process').exec     // execute npm scripts
     ,   stripDebug  = require('gulp-strip-debug')       // remove console.log() from production build
 
     // styles
@@ -158,6 +160,7 @@
             .pipe(jade({basedir: base, pretty: true}).on('error', handleError))
             .pipe(gulpif(env != 'dev', minifyHtml({ empty: true })))
             .pipe(gulp.dest(dest))
+            .pipe(wait(500))
             .pipe(livereload({quiet: true}));
     });
 
@@ -190,6 +193,50 @@
 
 
 
+/* === SCRIPTS === */
+
+    // Build and move script files.
+    gulp.task('scripts', function() {
+        runSequence([ 'scripts-app', 'scripts-libs' ]);
+    });
+
+    // @TODO: doesn't work. replace with systemjs builder?
+    // Execute jspm to transpile ES6 to ES5, minify and bundle.
+    // The jspm terminal command & arguments are found in package.json, under "builddev" and "buildprod"
+    gulp.task('scripts-app', function() {
+
+        var script = 'npm run build' + env;
+        // var script = 'npm run test';
+        
+        log && gutil.log('exec:', gutil.colors.green(script));
+
+        exec(script, function (err, stdout, stderr) {
+            if (err) { gutil.log(err); }
+            else { 
+                gulp.src(config.src + config.scripts.src)
+                    .pipe(livereload({quiet: true}));
+                gutil.log('jspm build success:', gutil.colors.yellow(env) ); 
+            }
+        });
+
+    });
+
+    // concatenate vendor scripts
+    gulp.task('scripts-libs', function() {
+
+/*        var src  = config.src + config.scripts.libs,
+            dest = config.environments[env].dest + config.scripts.dest;
+
+        // @TODO: uglify, strip logs
+        gulp.src(src)
+            .pipe(concat("libs.js"))
+            .pipe(gulp.dest(dest))
+*/    });
+
+
+
+
+
 /* === BUILD TASKS === */
 
     // Watch for changes.
@@ -201,6 +248,7 @@
         gulp.watch(config.src + config.assets.watch,  ['assets']  );
         gulp.watch(config.src + config.extras.watch,  ['extras']  );
         gulp.watch(config.src + config.markup.watch,  ['markup']  );
+        gulp.watch(config.src + config.scripts.watch, ['scripts'] );
         gulp.watch(config.src + config.styles.watch,  ['styles']  );
     });
 
@@ -216,7 +264,7 @@
 
     // Configure settings, copy assets and run preprocessors.
     gulp.task('build', function() {
-        runSequence([ 'setEnv', 'assets', 'extras', 'markup', 'styles' ]);
+        runSequence([ 'setEnv', 'assets', 'extras', 'markup', 'scripts', 'styles' ]);
         
     });
 

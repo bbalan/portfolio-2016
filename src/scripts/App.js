@@ -1,3 +1,7 @@
-import Test from './TestModule.js'
+import $ from 'jquery';
+import Logo from './Logo.js';
 
-console.log('It works!', Test);
+$(()=>{
+    let logo = new Logo();
+    console.log('It works!', logo);
+});

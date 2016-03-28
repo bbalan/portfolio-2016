@@ -1,37 +1,43 @@
-// scripts for the B monogram
+import $ from 'jquery';
 
-$(function() {
-    var $logo = $('#logo'),
-        $header = $('#header'),
-        showcaseDelay = 30000,
-        logoAnimated = false,
-        logoInterval = undefined;
+// scripts for the B monogram
+class Logo {
+    constructor() {
+        this.$logo          = $('#logo');
+        this.$header        = $('#header');
+        this.showcaseDelay  = 30000;
+        this.logoAnimated   = false;
+        this.logoInterval   = undefined;
+
+        if(this.$logo.length == 0) console.log('%cLogo not found!', 'color:red')
+
+        this.$header.on('mouseenter', (e) => { this.logoShowcase() });
+    }
 
     // initial animation
-    function logoReveal() {
+    logoReveal() {
         //console.log('logoReveal()');
 
-        logoAnimated = true;
+        this.logoAnimated = true;
         resetShowcase();
 
-        $logo
+        this.$logo
             .removeClass('stage-1 stage-3')
             .addClass('stage-2');
 
         window.setTimeout(function() {
             logoAnimated = false;
         }, 400);
-
     }
 
     // hide logo (for page transitions)
-    function logoHide() {
+    logoHide() {
         //console.log('logoHide()');
 
-        logoAnimated = true;
+        this.logoAnimated = true;
         resetShowcase();
 
-        $logo
+        this.$logo
             .removeClass('stage-2')
             .addClass('stage-3');
 
@@ -41,30 +47,32 @@ $(function() {
     }
 
     // display all stages of logo animation
-    function logoShowcase() {
+    logoShowcase() {
         console.log('logoShowcase()');
 
-        if(!logoAnimated) {
-            logoAnimated = true;
+        var self = this;
 
-            $logo
+        if(!self.logoAnimated) {
+            self.logoAnimated = true;
+
+            self.$logo
                 .removeClass('stage-1')
                 .removeClass('stage-2')
                 .addClass('stage-3');
 
             window.setTimeout(function() {
-                $logo
+                self.$logo
                     .removeClass('stage-3')
                     .addClass('stage-1');
 
                 window.setTimeout(function() {
-                    $logo
+                    self.$logo
                         .removeClass('stage-1')
                         .addClass('stage-2');
 
                     window.setTimeout(function() {
-                        logoAnimated = false;
-                        resetShowcase();
+                        self.logoAnimated = false;
+                        self.resetShowcase();
                     }, 550);
                 }, 50);
             }, 450);
@@ -73,15 +81,12 @@ $(function() {
         }
     }
 
-    function resetShowcase() {
+    resetShowcase() {
         //console.log('resetShowcase()');
 
-        logoInterval = window.clearInterval(logoInterval);
-        logoInterval = window.setInterval(logoShowcase, showcaseDelay);
+        this.logoInterval = window.clearInterval(this.logoInterval);
+        this.logoInterval = window.setInterval(this.logoShowcase, this.showcaseDelay);
     }
+}
 
-    //$(window).load(logoReveal);
-    $header.on('mouseenter', logoShowcase);
-    //$(document).on('page-transition-complete', logoHide);
-    //$(document).on('page-transition-full', logoHide);
-});
+export default Logo;

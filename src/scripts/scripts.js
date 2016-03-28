@@ -13,13 +13,6 @@ $(function() {
         timer = setTimeout(function(){
             $b.removeClass('disable-hover');
         }, 200);
-
-        // check whether to animate the header
-        if($w.scrollTop() == 0) {
-            $b.addClass('scroll-top');
-        } else {
-            $b.removeClass('scroll-top');
-        }
     }, false);
 
     $(document).on('click', '.info', function(e) {
